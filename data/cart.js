@@ -59,13 +59,13 @@ export function removeFromCart (productId) {
 }
 
 export function calculateCartQuantity() {
-  let cartQunatity = 0;
+  let cartQuantity = 0;
 
   cart.forEach((cartItem) => {
-    cartQunatity += cartItem.quantity;
+    cartQuantity += cartItem.quantity;
   });
 
-  return cartQunatity;
+  return cartQuantity;
 }
 
 export function updateQuantity(productId, newQuantity) {

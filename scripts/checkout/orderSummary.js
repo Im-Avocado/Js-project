@@ -1,4 +1,4 @@
-import {cart, removeFromCart, updateDeliveryOption, updateQuantity} from '../../data/cart.js';
+import {cart, removeFromCart, updateDeliveryOption, updateQuantity,} from '../../data/cart.js';
 import {products, getProduct} from '../../data/products.js';
 import {formatCurrency} from '../utils/money.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
@@ -126,8 +126,6 @@ export function renderOrderSummary() {
       );
       container.remove();
 
-      updateCartQuantity();
-
       renderPaymentSummary();
 
     });
@@ -139,19 +137,6 @@ export function renderOrderSummary() {
   cartQuantity += cartItem.quantity;
 });
 
-document.querySelector('.js-return-to-home-link')
-  .innerHTML = `${cartQuantity} items`;
-
-cart.forEach((cartItem) => {
-  cartQuantity += cartItem.quantity;
-});
-
-document.querySelector('.js-return-to-home-link')
-  .innerHTML = `${cartQuantity} items`;
-
-cart.forEach((cartItem) => {
-  cartQuantity += cartItem.quantity;
-});
 
 document.querySelector('.js-return-to-home-link')
   .innerHTML = `${cartQuantity} items`;
@@ -172,7 +157,7 @@ document.querySelector('.js-return-to-home-link')
       const productId = link.dataset.productId;
 
       const container = document.querySelector(`.js-cart-item-container-${productId}`);
-      container.classList.add('.is-editing-quantity');
+      container.classList.add('is-editing-quantity');
     });
   });
 
@@ -203,7 +188,7 @@ document.querySelector('.js-return-to-home-link')
       );
       quantityLabel.innerHTML = newQuantity;
 
-        updateQuantity();
+      renderPaymentSummary()
     });
   });
 
